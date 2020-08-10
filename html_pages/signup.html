@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>SignUp</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Jura' rel='stylesheet'>
+        <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    </head>
+    <style>
+        body {
+            background: #EB3349;
+            background: -webkit-linear-gradient(to right, #F45C43, #EB3349);
+            background: linear-gradient(to right, #F45C43, #EB3349);
+        }
+
+        .container {
+            background-color:#000000;
+            opacity:1;
+        }
+
+        * {
+            color:white;
+            font-size:20px;
+            font-weight:bold;
+            font-family: 'Jura';
+        }
+
+    </style>
+    <body>
+        <div class="container-fluid">
+            <br><br><br><br>
+            <div class="container" id="bg" style="background-color:#000000;opacity:0.9;">
+                <h2></h2>
+
+                <ul class="nav nav-tabs nav-justified">
+                    <li class=""><a href="{% url 'signin' %}">Sign In</a></li>
+                    <li class="active"><a data-toggle="tab" href="#signup">Sign Up</a></li>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="signup" class="tab-pane fade in active">
+                        <br><br>
+                        <form class="form-horizontal" method="POST" action="signup">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="text">Username:</label>
+                                <div class="col-sm-6">
+                                    {{form.username}}
+                                    <!---<input type="text" class="form-control" id="fname" placeholder="Enter your first name" name="fname">--->
+                                </div>
+                            </div><br>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="text">Player Tag:</label>
+                                <div class="col-sm-6">
+                                    {{form.player_tag}}
+                                    <!---<input type="text" class="form-control" id="lname" placeholder="Enter your last name" name="lname">--->
+                                </div>
+                            </div><br>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="text">Phone No:</label>
+                                <div class="col-sm-6">
+                                    {{form.phone_no}}
+                                    <!---<input type="text" class="form-control" id="username" placeholder="Enter your username" name="username">--->
+                                </div>
+                            </div><br>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="email">Email ID:</label>
+                                <div class="col-sm-6">
+                                    {{form.email}}
+                                    <!---<input type="email" class="form-control" id="email" placeholder="Enter your text id" name="emailid">--->
+                                </div>
+                            </div><br>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="pwd">Password:</label>
+                                <div class="col-sm-6">
+                                    {{form.password1}}
+                                    <!---<input type="password" class="form-control" id="pwd" placeholder="Enter your password" name="pwd">--->
+                                </div>
+                            </div><br>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="pwd">Confirm Password:</label>
+                                <div class="col-sm-6">
+                                    {{form.password2}}
+                                    <!---<input type="password" class="form-control" id="pwdagain" placeholder="Enter your password" name="pwdagain">--->
+                                </div>
+                            </div><br>
+                            <div class="form-group">        
+                                <div class="col-sm-offset-6 col-sm-6">
+                                    <button type="submit" class="btn-lg btn-success">Register</button>
+                                </div>
+                            </div>
+                            <div class="form-group">        
+                                <div class="col-sm-offset-5 col-sm-5">
+                                    <span class="justify-content-center">Already have an account?</span>
+                                    <a class="justify-content-center" href="{% url 'signin' %}"> Sign in</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>
