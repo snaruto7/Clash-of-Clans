@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Clash Of Clans</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Jura' rel='stylesheet'>
+        <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    </head>
+    <style>
+        body {
+            background: #000000;
+            background: -webkit-linear-gradient(to right, #434343, #000000);
+            background: linear-gradient(to right, #434343, #000000);
+
+        }
+        input[type="text"] {
+            background: transparent;
+            border: none;
+            font-size: 60px;
+            position: relative;
+            display: block;
+            outline: none;
+            width: 100%;
+            height: 100px;
+            top: 250px;
+            margin: 0 auto;
+            padding: 40px;
+            color: white;
+            text-align: center; 
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+        $('.submit_on_enter').keydown(function(event) {
+            // enter has keyCode = 13, change it if you want to use another button
+            if (event.keyCode == 13) {
+            this.form.submit();
+            return false;
+            }
+        });
+        });
+    </script>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2">
+                <h1 style="color:white">{{request.user}}: <a href="{% url 'signout' %}">Logout</a></h1>
+                </div>
+                <div class="col-sm-8">
+                    <form method="POST" action="home">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" class="form-control submit_on_enter" id="player-id" name="player-id" placeholder="Enter player id">                            
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-2">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
