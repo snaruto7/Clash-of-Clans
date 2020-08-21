@@ -79,15 +79,6 @@ DATABASES = {
     'default': {
         #'ENGINE': 'django.db.backends.sqlite3',
         #'NAME': BASE_DIR / 'db.sqlite3',
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
-        'USER': 'cocadmin@acc-developer-2020',
-        'PASSWORD': 'Qwerty123@',
-        'HOST': 'acc-developer-2020.postgres.database.azure.com',
-        'PORT': '5432',
-        'OPTIONS': {
-            'sslmode': 'require',
-        }
     }
 }
 
